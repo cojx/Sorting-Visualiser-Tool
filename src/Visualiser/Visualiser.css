@@ -1,0 +1,36 @@
+.array-container {
+    position: absolute;
+    align-items: baseline;
+    justify-content: baseline;
+    min-height: 550px;
+    min-width: 1000px;
+    top: 250px;
+    bottom: 100px;
+}
+
+.array-bar {
+    width: 2px;
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.button-container {
+    position: absolute;
+    align-items: baseline;
+    justify-content: baseline;
+    min-height: 100px;
+    min-width: 1000px;
+    width: 50%;
+    top: 75px;
+}
+
+.main-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
