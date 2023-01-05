@@ -4,7 +4,6 @@
 // The second list contains the indexes of the array-bars to change back to TURQUOISE colour
 // The third list contains changes to be made to the location and size of the array-bars 
 // This pattern repeats until the sorting is done
-// However, there are some deviations to this structure, which are made to better suit different sorting algorithms
 
 
 
@@ -39,11 +38,11 @@ function doMergeSort(mainArray, startIdx, endIdx, auxiliaryArray, animations) {
         animations.push([i, j]);        // Turn the colours of current numbers that are being compared to red
         animations.push([i, j]);        // Turn the colours of current numbers that are being compared back to turquoise
         if (auxiliaryArray[i] <= auxiliaryArray[j]) {
-            animations.push([k, auxiliaryArray[i]]);        // Perform swap
+            animations.push([k, auxiliaryArray[i], k, auxiliaryArray[i]]);        // Perform swap
             mainArray[k++] = auxiliaryArray[i++];
         }
         else {
-            animations.push([k, auxiliaryArray[j]]);        // Perform swap
+            animations.push([k, auxiliaryArray[j], k, auxiliaryArray[j]]);        // Perform swap
             mainArray[k++] = auxiliaryArray[j++];
         }
     }
@@ -51,14 +50,14 @@ function doMergeSort(mainArray, startIdx, endIdx, auxiliaryArray, animations) {
     while (i <= middleIdx) {
         animations.push([i, i]);        // Turn the colours of current numbers that are being compared to red
         animations.push([i, i]);        // Turn the colours of current numbers that are being compared back to turquoise
-        animations.push([k, auxiliaryArray[i]]);        // Perform swap
+        animations.push([k, auxiliaryArray[i], k, auxiliaryArray[i]]);        // Perform swap
         mainArray[k++] = auxiliaryArray[i++];
     }
 
     while (j <= endIdx) {
         animations.push([j, j]);        // Turn the colours of current numbers that are being compared to red
         animations.push([j, j]);        // Turn the colours of current numbers that are being compared back to turquoise
-        animations.push([k, auxiliaryArray[j]]);        // Perform swap
+        animations.push([k, auxiliaryArray[j], k, auxiliaryArray[j]]);        // Perform swap
         mainArray[k++] = auxiliaryArray[j++];
     }
 }
@@ -269,7 +268,7 @@ function doInsertionSort(array, animations) {
 
             animations.push([i, j]);
             animations.push([j, j]);
-            animations.push([j+1, array[j]]);
+            animations.push([j+1, array[j], j+1, array[j]]);
 
             array[j+1] = array[j];
 
@@ -278,7 +277,7 @@ function doInsertionSort(array, animations) {
 
         animations.push([i, i]);
         animations.push([i, i]);
-        animations.push([j+1, temp]);
+        animations.push([j+1, temp, j+1, temp]);
 
         array[j+1] = temp;
     }
